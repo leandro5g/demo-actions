@@ -1,0 +1,28 @@
+name: Publish Demo Actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu:latest
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Run Testes
+        run: |
+          echo Testes Running
+          echo Testes passing
+      
+      - name: Build aplication
+        run: echo Build aplication
+
+  deloyment-develop:
+    runs-on: ubuntu:latest
+    steps:
+
+      - name: deploy to develop
+        run: echo deploy development success
+    
+  
