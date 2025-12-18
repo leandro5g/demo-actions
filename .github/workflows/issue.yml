@@ -1,0 +1,23 @@
+name: Issue
+
+on: 
+    issues:
+        types: [opened]
+
+jobs:
+    issues:
+        runs-on: ubuntu-lastest
+        permissions:
+            issues: write
+        steps:
+            - name: Comment
+              uses: actions/github-scripts@v3
+              with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                script: |
+                    github.issues.createComment({
+                        issue_number: context.issue.number,
+                        owner: context.repo.owner
+                        repo: context.repo.repo
+                        body: "Boas vindas ao Projeto!"
+                    })
