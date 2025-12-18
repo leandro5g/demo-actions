@@ -19,6 +19,7 @@ jobs:
 
   deloyment-develop:
     needs: [build]
+    environment: desenvolvimento
     runs-on: ubuntu:latest
     steps:
       - name: deploy to develop
@@ -32,7 +33,5 @@ jobs:
         
       - name: Download Artefactory
         run: echo Download artefactory
-
-        run: echo deploy development success
     
   
